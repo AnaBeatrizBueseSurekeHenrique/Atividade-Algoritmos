@@ -1,0 +1,14 @@
+Explique, com suas palavras, os conceitos/significados dos seguintes termos:
+1. Funções
+Funções são partes do codigo, elas são utilizadas para organizar e decompor o codigo em partes menores.
+2. Argumentos/Parâmetros
+Parâmetros sãos os valores que são devolvidos em funções com parâmetro, eles são usados para generalizar um codigo.
+3. Tipos de funções
+Existem as funções sem parâmetro (void, é chamada de procedimento) e as com parâmetros (como, por exemplo, int, bool)
+4. void
+Void é um tipo de função, ele não possui paramêtro, ou seja, ele não possui return e é chamado de procedimento.
+5. Tipos de passagem de parâmetro (qual o padrão do C/C++?)
+Existem dois tipos de passagem de parâmetro, a por valor, que é a forma padrão do C/C++, e a por referência. 
+
+6. Retorno de uma função (quais os tipos de retorno?)
+Os tipos de retorno são: int, string, bool, float, double, char;
