@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 using namespace std;
 
@@ -42,17 +41,16 @@ void somaEntre(){
     cout << "A soma e igual a " << soma << endl;
 }
 
-void volume(){
+void volumeEsfera(){
     float raio, volume;
-    double pi = M_PI;
     cout << "Insira o valor do raio da esfera: ";
     cin >> raio;
-    volume = (4*pi*(raio*raio*raio))/3;
+    volume = (4*3.14*(raio*raio*raio))/3;
     cout << "O volume da esfera e igual a " << fixed << setprecision(3) << volume << endl;
 }
 
 void fatorial(){
-    int numero, fatorial;
+    long int numero, fatorial;
     cout << "Insira um numero para calcularmos seu fatorial: ";
     cin >> numero;
     fatorial = numero;
@@ -81,7 +79,7 @@ int main(){
     multiploQuatro();
     imparPar();
     somaEntre();
-    volume();
+    volumeEsfera();
     fatorial();
     potencia();
     return 0;
