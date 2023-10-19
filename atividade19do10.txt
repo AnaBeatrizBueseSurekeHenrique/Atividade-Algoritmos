@@ -1,0 +1,9 @@
+A.
+1 na linha 4 será impresso 5, o valor que foi atribuido a i, pois foi atribuido a *p_contador o valor no endereço de memoria de i. Na linha 5, será impresso um lixo de memoria.
+2. Serão impressos os endereços de memoria das variaveis.
+3. Na linha 6, será imprimido 55, na linha 7 será imprimido o endereço de memoria de p, e na linha 8 será imprimido 55, o valor que foi atribuido a num, pois o endereço de num foi atribuido ao ponteiro junto de seu valor.
+B. 1. letra E.
+2. letra B.
+3. Na letra C, será atribuido o endereço de memoria da variavel i para o ponteiro pti.
+C. A opção numero 5 está errada, *pti terá valor 10, pti terá o valor do endereço de memoria de i.
+D. 7, sim, o valor do endereço armazenado em fP é o mesmo endereço de numero1.
