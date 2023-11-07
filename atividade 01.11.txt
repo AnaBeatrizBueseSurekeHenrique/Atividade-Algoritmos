@@ -1,8 +1,7 @@
 B. Caso o 0 não estiver no inicio, o valor retornado será "false", apesar de ter um zero na função, pois a função parará após o primeiro loop
 do for.
 
-D. 6. A soma será a soma dos numeros diviseis por a entre b e c
+D. 6. A soma será a soma dos numeros entre b e c que a é dividivel por.
 7.
-Será calculado a soma da divisao inteira por 100 e do resto da divisao do numero, será feito o quadrado desta soma, e então o resultado que sairá será dependerá 
-se o quadrado é igual ao numero (a saida será "O numero possui a caracterisitca") ou se não é igual (O numero não possui).
+Será calculado a soma da divisao inteira por 100 e do resto da divisao do numero, será feito o quadrado desta soma, e então o resultado que sairá será dependerá se o quadrado é igual ao numero (a saida será "O numero possui a caracterisitca") ou se não é igual (O numero não possui).
 8. Será calculado a quantidade de divisores que um numero tem, incluindo ele mesmo, com 2 adicionado a esse resultado.
