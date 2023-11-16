@@ -34,7 +34,7 @@ int main(){
     }
     //exercicio 3
     ponteiro = &aluno1;
-     cout << "Insira o nome: ";
+    cout << "Insira o nome: ";
     cin >> ponteiro->nome;
     cout << "Insira a idade: ";
     cin >> ponteiro->idade;
