@@ -1,0 +1,14 @@
+A. a)
+B.  Qual o valor de y após a execução do programa?
+O valor de y será 4. No começo, o valor atribuido a y será 0, então o valor apontado por p (que é y), aumenta em 1.
+O valor de x, muda para 4, e então diminui para 3. Após isso, o valor de y será a soma de 1 + 3, ou seja 4.
+C.
+F.
+V.
+V.
+D. Não se foi dado um endereço de memoria para p apontar.
+E. O resultado será 10-1, o valor apontado por pb e o valor apontado por pa, ou seja, será 9.
+F. Pc1 = 1000
+pc2 = 1001
+pc3 = 1005
+pc4 = 1000
