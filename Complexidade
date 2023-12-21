@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+float funcao(float A, float v, int n);
+
+int main(){
+  int n = 5.
+ float A[n], v;
+ for (int i = 0; i < n; i++){
+  cin >> A[i];
+ }
+ cout << "Insira o número a ser procurado:”;
+ cin >> v;
+ cout << funcao(A, v n);
+ return 0;
+}
+
+float funcao(float A, float v, int n){
+ float retornar = -1;
+ int i = 0;
+ bool encontrado = false;
+  while (i < n && encontrado == false){
+  if(A[i] == v){
+    retornar = i;
+    encontrado = true;
+  }
+  i++;
+}
+return retornar;
+
+}
