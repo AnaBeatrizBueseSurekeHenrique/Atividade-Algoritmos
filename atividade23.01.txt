@@ -90,4 +90,13 @@ n   | teste2| n< 10
 45  |  9    | F
 4   |  4    | V
 
-A saida sera 14, ela conta a soma de cada algarismo individual de um número.
+A saida sera 14, a função conta a soma de cada algarismo individual de um número.
+
+E)
+v                 | n| x | max| x > v[n-1]?
+2 | 7 | 4 | 7 | 3 | 5| 7 | 7 | V
+                  | 4| 7 | 7  | F
+                  | 3| 7 | 7  | V
+                  | 2| 7 | 7  | F
+                  | 1| 2 | 2  | F
+Ele escolherá o segundo 7
