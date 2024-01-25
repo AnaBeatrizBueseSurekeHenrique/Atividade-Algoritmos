@@ -80,3 +80,14 @@ Fibonacci:
 |fib(2)+ fib(1)|                                                                                  
 |  1   | |  0  |                                                                                    
 São necessárias 41 chamadas.
+
+C) Trata-se de uma função linear, ela calcula a soma dos numeros maiores que 10 de um vetor.
+
+D)
+n   | teste2| n< 10
+4532|  14   | F
+453 |  12   | F
+45  |  9    | F
+4   |  4    | V
+
+A saida sera 14, ela conta a soma de cada algarismo individual de um número.
