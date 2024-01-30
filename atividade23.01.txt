@@ -81,7 +81,7 @@ Fibonacci:
 |  1   | |  0  |                                                                                    
 São necessárias 41 chamadas.
 
-C) Trata-se de uma função linear, ela calcula a soma dos numeros maiores que 10 de um vetor.
+C) Trata-se de uma função em árvore, ela calcula a soma dos numeros maiores que 10 de um vetor.
 
 D)
 n   | teste2| n< 10
