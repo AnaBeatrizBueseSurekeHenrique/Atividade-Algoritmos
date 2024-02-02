@@ -55,7 +55,7 @@ n |v      | i| j| aux| j>= 0?|aux < v[j]| i < n
   |1|2|3|4| 4|  |    |       | 	        |F  
   
 
-I. Considerando a ordenação por inserção, quantas comparações e quantas
+II. Considerando a ordenação por inserção, quantas comparações e quantas
 trocas são realizadas para a ordenação de v2?
 7 comparações e 3 trocas.
 Merge
