@@ -35,7 +35,6 @@ typedef struct{
 } Data;
 
 typedef struct {
-    Turma serie;
     string nome;
     Materias notasMaterias[20];
     int faltas;
@@ -163,6 +162,7 @@ int main(){
                 cadastroAluno = true;
             }            
             cadastroTurma = false;
+            system("cls");
         }
         while(cadastroAluno == true){
             if(primeiraVez == true){
@@ -170,6 +170,7 @@ int main(){
                 tecla = getch();
                 cadastroAluno = false;
                 noMenu = true;
+                system("cls");
             } else{
                 i = 0;
                 j = verificarTurma(&letra, &serie, numeroTurmas, escola);
@@ -180,10 +181,7 @@ int main(){
                     cin >> numero;
                 }
                 escola[j].quantidade = numero;
-                while(i < numero){
-                    escola[j].alunos[i].serie.ano = escola[j].serie.ano;
-                    escola[j].alunos[i].serie.ano = escola[j].serie.letra;
-                    
+                while(i < numero){    
                     cout << "Insira o nome do aluno: ";
                     cin.ignore();
                     getline(cin, escola[j].alunos[i].nome);
@@ -231,7 +229,7 @@ int main(){
                 i++;
                 }
             bubblesort(escola[j].alunos, numero);
-            cout << "Deseja cadastrar outra turma? S/N";
+            cout << "Deseja cadastrar outra turma? S/N" << endl;
             cin >> letra;
             if(letra == 'S' || letra == 's'){
                     cadastroAluno = true;
@@ -252,17 +250,18 @@ int main(){
             } else{
                 j = 0;
                 if(escola[i].alunos[0].nome.empty() == true){
-                    cout << "A turma nao foi cadastrada! Pressione qualquer tecla para voltar! ";
+                    cout << "A turma nao foi cadastrada! Pressione qualquer tecla! " << endl;
                     tecla = getch();
                     if(numeroTurmas == 1){
                         cadastros = false;
                         noMenu = true;
+                        system("cls");
                         break;
                     }
                 }
                 while(j < escola[i].quantidade){
                     if(escola[i].alunos[0].nome.empty() == true){
-                        cout << "A turma nao foi cadastrada! Pressione qualquer tecla para voltar! " << endl;
+                        cout << "A turma nao foi cadastrada! Pressione qualquer tecla para voltar ou ir ate a proxima turma! " << endl;
                         tecla = getch();
                         if(numeroTurmas == 0){
                             cadastros = false;
@@ -280,10 +279,11 @@ int main(){
                         cout << "Notas" << endl;
                         int k = 0;
                         while(k < l){
-                            cout << escola[i].alunos[j].notasMaterias[k].nota.media << setw(15) << escola[i].alunos[j].notasMaterias[k].nome << endl;
+                            cout << escola[i].alunos[j].notasMaterias[k].nota.media << " " << escola[i].alunos[j].notasMaterias[k].nome << " " << endl;
                             k++;
                         }
                         j++;
+                        cout << endl;
                     }
                 }
                 if(i < numeroTurmas){
@@ -317,7 +317,7 @@ int main(){
                                     }
                                 }
                             } else{
-                                cout << "Ver turma anterior? S/A" << endl;
+                                cout << "Ver turma anterior? S/N" << endl;
                                 cin >> letra;
                                 if(letra == 'S' || letra == 's'){
                                     i--;
@@ -329,7 +329,7 @@ int main(){
                         }
                     } 
                 }
-            
+                system("cls");
             }
         } 
         while(procurar == true){
@@ -339,6 +339,7 @@ int main(){
                 tecla = getch();
                 procurar = false;
                 noMenu = true;
+                system("cls");
             } else{
                 cout << "Insira o aluno a ser procurado: ";
                 cin >> nomeAluno;
@@ -361,13 +362,14 @@ int main(){
                         k++;
                     }
                 }
-                cout << endl << "Deseja cadastrar outros alunos? S/N: ";
+                cout << endl << "Deseja procurar outros alunos? S/N: ";
                 cin >> letra;
                 if(letra == 'n' || letra == 'N'){
                     procurar = false;
                     noMenu = true;
                 }
-            }    
+            }
+            system("cls");    
         }
     }
 
