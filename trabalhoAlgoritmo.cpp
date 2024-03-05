@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <iomanip>
+#include <cassert>
 #define esquerda 75
 #define direita 77
 #define enter 13
@@ -57,8 +58,10 @@ void troca(Aluno *a, Aluno *b);
 void bubblesort (Aluno v[], int n);
 int verificarTurma(char *letra, int *numero, int numeroturma, TurmaGeral *turma);
 int busca_sequencial(string x, TurmaGeral *v, int numeroturma, int *j);
-
+float mediacalculo(float n1, float n2, float n3, float n4, float n5);
+void testeMediacalculo();
 int main(){
+    testeMediacalculo();
     bool noMenu = true, cadastroTurma = false, cadastros = false, cadastroAluno = false, primeiraVez = true, funcionando = true, procurar = false;
     int posicao = 1, tecla = 0, numeroTurmas, numeroMaterias, i = -1, j, serie, numero, l = -1;
     char letra;
@@ -130,7 +133,7 @@ int main(){
                     cout << "Falha de alocacao de memoria" << endl;
                     return -1;
                 }
-                cout << "Insira as materias fornecidas pela escola, escreva 'N' para parar.";
+                cout << "Insira as materias fornecidas pela escola, escreva 'N' para parar ";
                 escola[0].alunos[0].notasMaterias[0].nome = " ";
                 while(i < 20 && escola[0].alunos[0].notasMaterias[i].nome != "N" && escola[0].alunos[0].notasMaterias[i].nome != "n"){
                     i++;
@@ -141,7 +144,7 @@ int main(){
                     escola[0].alunos[0].notasMaterias[i].nome = " ";
                 }
                 if(i >= 19){
-                    cout << "Numero maximo de matérias atingido.";
+                    cout << "Numero maximo de materias atingido.";
                 }
                 primeiraVez = false;
             }
@@ -186,7 +189,7 @@ int main(){
                     cin.ignore();
                     getline(cin, escola[j].alunos[i].nome);
                     
-                    cout << "Insira a data de nascimento do aluno, com espaço entre o dia mes e ano: ";
+                    cout << "Insira a data de nascimento do aluno, com espaco entre o dia mes e ano: ";
                     cin >> escola[j].alunos[i].nascimento.dia >>  escola[j].alunos[i].nascimento.mes >> escola[j].alunos[i].nascimento.ano;
                     
                     cout << "Insira a data em que foi realizada a matricula: ";
@@ -207,6 +210,7 @@ int main(){
                     
                     int k = 0;
                     while(k < l){
+                        escola[j].alunos[i].notasMaterias[k].nome = escola[0].alunos[0].notasMaterias[k].nome;
                         cout << "Insira a nota da prova 1 da materia " << escola[0].alunos[0].notasMaterias[k].nome << ": ";
                         cin >> escola[j].alunos[i].notasMaterias[k].nota.prova1;
                         
@@ -222,21 +226,22 @@ int main(){
                         cout << "Insira a nota dos trabalhos realizados da materia: ";
                         cin >> escola[j].alunos[i].notasMaterias[k].nota.trabalhos;
                         
-                        escola[j].alunos[i].notasMaterias[k].nota.media = (escola[j].alunos[i].notasMaterias[k].nota.prova1 + escola[j].alunos[i].notasMaterias[k].nota.prova2 + escola[j].alunos[i].notasMaterias[k].nota.prova3 + escola[j].alunos[i].notasMaterias[k].nota.atividades +escola[j].alunos[i].notasMaterias[k].nota.trabalhos)/5;       
+                        escola[j].alunos[i].notasMaterias[k].nota.media = mediacalculo(escola[j].alunos[i].notasMaterias[k].nota.prova1, escola[j].alunos[i].notasMaterias[k].nota.prova2, escola[j].alunos[i].notasMaterias[k].nota.prova3, escola[j].alunos[i].notasMaterias[k].nota.atividades, escola[j].alunos[i].notasMaterias[k].nota.trabalhos);       
                         k++;
                     }
                     system("cls");
                 i++;
                 }
-            bubblesort(escola[j].alunos, numero);
-            cout << "Deseja cadastrar outra turma? S/N" << endl;
-            cin >> letra;
-            if(letra == 'S' || letra == 's'){
-                    cadastroAluno = true;
-            } else{
-                    cadastroAluno = false;
-                    noMenu = true;
-            }
+                bubblesort(escola[j].alunos, numero);
+                cout << "Deseja cadastrar outra turma? S/N" << endl;
+                cin >> letra;
+                if(letra == 'S' || letra == 's'){
+                        cadastroAluno = true;
+                } else{
+                        cadastroAluno = false;
+                        noMenu = true;
+                }
+                system("cls");
             }
         }
         i = 0;
@@ -260,6 +265,7 @@ int main(){
                     }
                 }
                 while(j < escola[i].quantidade){
+                    int k = 0;
                     if(escola[i].alunos[0].nome.empty() == true){
                         cout << "A turma nao foi cadastrada! Pressione qualquer tecla para voltar ou ir ate a proxima turma! " << endl;
                         tecla = getch();
@@ -269,19 +275,21 @@ int main(){
                         }
                         break;
                     } else{
-                        cout << nome << setw(30) << escola[i].serie.ano << setw(30) << escola[i].serie.letra; 
+                        int k = 0;
+                        
+                        cout << nome << setw(30) << escola[i].serie.ano << " " << escola[i].serie.letra; 
                         cout << endl <<"Nome" << setw(30) << "Nascimento" << setw(30) << "Matricula" << endl;
                         cout << escola[i].alunos[j].nome << setw(20) << escola[i].alunos[j].nascimento.dia << "/"<< escola[i].alunos[j].nascimento.mes << "/" << escola[i].alunos[j].nascimento.ano << setw(30) << escola[i].alunos[j].matricula.dia << "/" << escola[i].alunos[j].matricula.mes << "/" << escola[i].alunos[j].matricula.ano << endl;
-                        
                         cout << "Faltas" << setw(30) << "Alergias" << setw(30) << "Doencas" << setw(30) << "Ocorrencias" << endl;
                         cout << escola[i].alunos[j].faltas << setw(30) << escola[i].alunos[j].alergias << setw(30) << escola[i].alunos[j].doencas << setw(30) << escola[i].alunos[j].ocorrencias << endl;
-                        
                         cout << "Notas" << endl;
-                        int k = 0;
+                        
                         while(k < l){
-                            cout << escola[i].alunos[j].notasMaterias[k].nota.media << " " << escola[i].alunos[j].notasMaterias[k].nome << " " << endl;
-                            k++;
+                             cout << escola[i].alunos[j].notasMaterias[k].nota.media << " " << escola[i].alunos[j].notasMaterias[k].nome << " " << endl;
+                             k++;
                         }
+                        k = 0;
+                        
                         j++;
                         cout << endl;
                     }
@@ -407,6 +415,10 @@ void troca(Aluno *a, Aluno *b){
         aux = a->notasMaterias[i].nota.trabalhos;
         a->notasMaterias[i].nota.trabalhos = b->notasMaterias[i].nota.trabalhos;
         aux = b->notasMaterias[i].nota.trabalhos;
+
+        aux = a->notasMaterias[i].nota.media;
+        a->notasMaterias[i].nota.media = b->notasMaterias[i].nota.media;
+        b->notasMaterias[i].nota.media = aux;
         i++;
     }
     aux2 = a->faltas;
@@ -517,4 +529,13 @@ int busca_sequencial(string x, TurmaGeral *v, int numeroturma, int *j) {
         }
     }
  return -1;
+}
+
+float mediacalculo(float n1, float n2, float n3, float n4, float n5){
+    return (n1+n2+n3+n4+n5)/5;
+}
+
+void testeMediacalculo(){
+    assert(mediacalculo(5, 5, 5, 5, 5) == 5);
+    assert(mediacalculo(7, 7, 7, 7, 7) == 7);
 }
