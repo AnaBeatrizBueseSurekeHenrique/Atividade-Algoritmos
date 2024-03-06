@@ -60,11 +60,13 @@ int verificarTurma(char *letra, int *numero, int numeroturma, TurmaGeral *turma)
 int busca_sequencial(string x, TurmaGeral *v, int numeroturma, int *j);
 float mediacalculo(float n1, float n2, float n3, float n4, float n5);
 void testeMediacalculo();
+float mediaTurma(TurmaGeral *escola, int i, int j, int k);
 int main(){
     testeMediacalculo();
     bool noMenu = true, cadastroTurma = false, cadastros = false, cadastroAluno = false, primeiraVez = true, funcionando = true, procurar = false;
     int posicao = 1, tecla = 0, numeroTurmas, numeroMaterias, i = -1, j, serie, numero, l = -1;
     char letra;
+    float mediaT;
     string tela[10][2], seta[10], nome, nomeAluno;
     TurmaGeral *escola;
     while(funcionando == true){
@@ -288,10 +290,16 @@ int main(){
                              cout << escola[i].alunos[j].notasMaterias[k].nota.media << " " << escola[i].alunos[j].notasMaterias[k].nome << " " << endl;
                              k++;
                         }
-                        k = 0;
                         
                         j++;
                         cout << endl;
+                    }
+                    k = 0;
+                    cout << "Media da turma: ";
+                    while(k < l){
+                        mediaT = mediaTurma(escola, i, j-1, k) / j;
+                     cout << mediaT << " " << escola[i].alunos[j-1].notasMaterias[k].nome << endl;
+                     k++;
                     }
                 }
                 if(i < numeroTurmas){
@@ -538,4 +546,12 @@ float mediacalculo(float n1, float n2, float n3, float n4, float n5){
 void testeMediacalculo(){
     assert(mediacalculo(5, 5, 5, 5, 5) == 5);
     assert(mediacalculo(7, 7, 7, 7, 7) == 7);
+}
+
+float mediaTurma(TurmaGeral *escola, int i, int j, int k){
+    if(j == 0){
+        return 0;
+    } else{
+    return escola[i].alunos[j].notasMaterias[k].nota.media + escola[i].alunos[j-1].notasMaterias[k].nota.media;
+    }
 }
